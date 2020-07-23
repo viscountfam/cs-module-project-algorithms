@@ -4,8 +4,18 @@ Returns: an integer
 '''
 def single_number(arr):
     # Your code here
+    counts = {}
+    for n in arr:
+        if n not in counts:
+            counts[n] = 0
+        counts[n] += 1
+    
+    singles = []
+    for n, count in sorted(counts.items()):
+        if count == 1:
+            singles.append(n)
 
-    pass
+    return singles[0]
 
 
 if __name__ == '__main__':
