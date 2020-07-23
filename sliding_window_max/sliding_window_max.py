@@ -3,22 +3,29 @@ Input: a List of integers as well as an integer `k` representing the size of the
 Returns: a List of integers
 '''
 def sliding_window_max(nums, k):
-    beginning = 0
-    end = k + 1
-    window = nums[beginning : end]
-    local_maxima = []
-    while True:
-         local_maxima.append(max(window))
-         beginning += 1
-         end += 1
-         window = nums[beginning : end]
-         if window[-1] == nums[-1]:
-            local_maxima.append(max(window))
-            beginning += 1
-            end += 1
-            window = nums[beginning : end]
-            break
-    return local_maxima
+    # beginning = 0
+    # end = k + 1
+    # window = nums[beginning : end]
+    # local_maxima = []
+    # while True:
+    #      local_maxima.append(max(window))
+    #      beginning += 1
+    #      end += 1
+    #      window = nums[beginning : end]
+    #      if window[-1] == nums[-1]:
+    #         local_maxima.append(max(window))
+    #         beginning += 1
+    #         end += 1
+    #         window = nums[beginning : end]
+    #         break
+    # return local_maxima
+    res = []
+    for i in range(0, len(nums)):
+        arr = nums[i:i+k]
+
+        if len(arr) == k:
+            res.append(max(arr))
+    return res
 
 
 if __name__ == '__main__':
